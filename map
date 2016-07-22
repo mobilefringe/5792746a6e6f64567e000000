@@ -1,0 +1,45 @@
+<script src="http://assets.codecloudapp.com/sites/5438407c6e6f64462d020000/92b82a88144a6207ab1a5e8e0f63d3d1/craftmap.js"></script>
+<div class="content_container main_container position_relative">
+    <a href="#" class="locate_store">Locate store <i class="fa fa-search"></i></a>
+    <div class="stores_table">
+        <ul id="store_list_container_map">
+            <script id="store_list_template_map" type="x-tmpl-mustache/text">
+                <li><a href="#" store_id="store_{{id}}" onclick="return show_pin(this)">{{name}}</a><li>
+            </script>
+        </ul>
+    </div>
+    <div id="map2" class="">
+        <img alt="map" id="map_image" src="http://cdn.mallmaverick.com/system/properties/maps/000/000/006/original/WTC_Map-850.jpg?1367432017" />
+    </div>
+    
+</div>
+
+<script>
+    $(document).ready(function(e){
+        init(e);
+        function renderAll (){
+            var categories = getStoreCategories();
+            var stores = getStoresList(); 
+            renderStoreList('#store_list_container_map','#store_list_template_map', stores, "A", "Z");
+            
+            $.each(stores, function(i, val){
+                x = val.x_coordinate - 19;
+                y = val.y_coordinate - 58;
+               $('#map_image').after('<div class="marker" id="store_' + val.id  + '" data-coords="' + x + ', ' + y + '" style="display:none"><a style="color:#fff" href=/stores/'+val.slug +'>' + val.name + '</a></div>')
+            });  
+            show_content();
+            $('#map2').craftmap({
+    			image: {
+    				width: 850,
+    				height: 850,
+    			},
+    			map: {
+    				position: 'center'
+    			}
+    		});
+            
+        }
+        
+		loadMallDataCached(renderAll); 
+    })
+</script>
