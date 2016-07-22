@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Update each web pages SEO to set values for {{meta_title}}, {{meta_description}}, {{meta_keywords}} -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{meta_description}}">
+    <meta name="keywords" content="{{meta_keywords}}">
+    <meta name="author" content="">
+    <title>{{meta_title}}</title>
+
+   
+    <!--CSS-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <link href="http://assets.codecloudapp.com/sites/54b83f086e6f646b45000000/60cb7d89e157debbb7914a941327ad2c/animate.css" rel="stylesheet" type="text/css">
+    <link href="http://assets.codecloudapp.com/sites/54b83f086e6f646b45000000/f6dbff9c3ff2572186f780a16fceabf0/flexslider.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://assets.codecloudapp.com/sites/54b83f086e6f646b45000000/60cb7d89e157debbb7914a941327ad2c/prettyPhoto.css" type="text/css" media="screen">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.5.0/flexslider.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="/scaffold.css" rel="stylesheet">
+    <link href="/application.css" rel="stylesheet">
+    
+    <!--Javascript-->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.5.0/jquery.flexslider.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.2/jquery.xdomainrequest.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js"></script>
+    <script src="http://assets.codecloudapp.com/sites/5438407c6e6f64462d020000/601617fe9ab691b1b62a66ac3ca3e8b7/jquery.cookie.js"></script>
+    <script src="../site.js" type="text/javascript"></script>
+    <script src="../application.js" type="text/javascript"></script>
+    <script src="../helpers.js" type="text/javascript"></script>
+    
+    <!--MallMaverick SDK-->
+    <script src="http://mallmaverick.codecloudapp.com/mallmaverick.js?v=0.3"></script>
+    <script src="http://mallmaverick.codecloudapp.com/mustache_mallmaverick.js?v=0.3"></script>
+    
+    <script>
+        setEndPoint('http://www.riowashingtonian.com/api/v2/washingtonian/all.json');
+    </script>
+</head>
+
+<body class="">
+    <div class="mobile_menu_container">
+        <div class="opened_mobile_menu">
+            <h4>MENU</h4>
+            <ul>
+                <li><a href="/stores">SHOP & RESTAURANTS</a></li>
+                <li><a href="/promotions">SPECIAL OFFERS</a></li>
+                <li><a href="/events">EVENTS</a></li>
+                <li><a href="/directions">DIRECTIONS</a></li>
+                <li><a href="/about_us">ABOUT US</a></li>
+                <li><a href="/contact">CONTACT US</a></li>
+            </ul>
+            <h4 id="close_menu">close</h4>
+            <hr class="strikethrough" />
+            <div class="social_icons_menu show_phone text-center">
+                <p>Follow us on</p>
+                <a href="https://www.facebook.com/pages/Virginia-Gateway/283283508519" target="_blank">
+                    <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1455911898000/icon_facebook2.png" class="" alt="FB">
+                </a>
+                <a href="https://twitter.com/VAGateway" target="_blank">
+                    <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1455911906000/icon_twitter2.png" class="" alt="Twitter">
+                </a>
+                <a href="http://instagram.com/VAGateway" target="_blank">
+                    <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1466704555000/icon_insta_mobile.png" class="" alt="Instagram">
+                </a>
+                <a href="http://www.youtube.com/channel/UC175yccg8-RkPlUQU4d-YjA" target="_blank">
+                    <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1455911921000/icon_yt2.png" class="" alt="YouTube">
+                </a>
+                <a href="https://plus.google.com/b/101788305961537968923/+Vagateway/posts" target="_blank">
+                    <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1466704553000/icon_gplus_mobile.png" class="" alt="Google Plus">
+                </a>
+                <a href="#" target="_blank">
+                    <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1455911937000/icon_newsletter2.png" class="" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+    <section class="content_container main_container position_relative">
+        <div class="mobile_search ">
+            <input type="text" placeholder="Search" id="site_search" class="site_search" />
+            <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/jpeg/1456781961000/icon_close.jpg" class="close_search " alt="search">
+        </div>
+        <div class="row header mobile_margin">
+            <div class="col-md-4 col-xs-4">
+                <p class="hidden_phone">Follow us on</p>
+                <div class="social_icons hidden_phone">
+                    <a class="social_fb" href="https://www.facebook.com/pages/Virginia-Gateway/283283508519" target="_blank"></a>
+                    <a class="social_twitter" href="https://twitter.com/VAGateway" target="_blank"></a>
+                    <a class="social_insta" href="http://instagram.com/VAGateway" target="_blank"></a>
+                    <a class="social_yt" href="http://www.youtube.com/channel/UC175yccg8-RkPlUQU4d-YjA" target="_blank"></a>
+                    <a class="social_gp" href="https://plus.google.com/b/101788305961537968923/+Vagateway/posts" target="_blank"></a>
+                    <a class="social_newsletter" href="/newsletter" target="_blank"></a>
+                </div>
+                <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1455905827000/icon_menu.png" class="open_menu show_phone" alt="Menu">
+            </div>
+            <div class="col-md-4 col-xs-4 text-center">
+                <a href="/">
+                    <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1455899596000/main_logo.png" class="main_logo " alt="main_logo">
+                </a>
+            </div>
+            <!--<div class="col-md-4 col-xs-4 text-right position_relative">-->
+            <!--    <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1455901042000/icon_search.png" class="search_btn " alt="search">-->
+            <!--    <input type="text" placeholder="Search" id="site_search" class="site_search search_field hidden_phone" />-->
+            <!--    <div class="search_results_container">-->
+            <!--        <div class="site_search_results" id="search_results_stores"></div>-->
+            <!--        <div class="site_search_results" id="search_results_events"></div>-->
+            <!--        <div class="site_search_results" id="search_results_promotions"></div>-->
+            <!--    </div>-->
+            <!--</div>-->
+        </div>
+        
+        <div class="menu_container hidden_phone">
+            <a href="/stores">shop & entertainment</a>
+            <a href="/events">events</a>
+            <a href="/promotions">specials</a>
+            <a href="/directions">directions</a>
+        </div>
+    </section>
+    <section class="yield">
+        {{yield}}
+    </section>
+    
+    <section class="content_container main_container">
+        <div class="newsletter_container text-center">
+            <h2 class="heading">SIGN UP TO RECEIVE OUR UPDATES</h2>
+            <p class="newsletter_desc">Breaking Fashion News <br class="show_phone" /><span>•</span> Style Tips & Advice <br class="show_phone" /><span>•</span> Exclusive Events</p>
+            <a href="/newsletter" class="newsletter_btn animated_btn">join us</a>
+        </div>
+        <div class="site_map">
+            <div class="row">
+                <div class="col-md-4 right_border">
+                    <div class="hidden_phone">
+                        <h4 class="site_map_heading">VISIT US</h2>
+                        <p class="site_map_desc">
+                            Virginia Gateway Management Office
+                            <br />
+                            7524 Iron Bar Lane
+                            <br />
+                            Gainesville, Virginia 20155
+                            <br />
+                            <a href="https://www.google.com/maps/place/Virginia+Gateway+Shopping+Center/@38.7950497,-77.6094013,17z/data=!3m1!4b1!4m2!3m1!1s0x89b667ad5c67a803:0x64d7f8d30a67a8b0?hl=en-US" target="_blank">Open Maps! ></a>
+                        </p>
+                    </div>
+                    <div class="show_phone">
+                        <h4 class="site_map_heading">SOCIAL</h2>
+                        <p class="site_map_desc">
+                            Follow us and stay tune with all our activities and news!
+                        </p>
+                        <div class="social_icons">
+                            <a href="https://www.facebook.com/pages/Virginia-Gateway/283283508519" target="_blank">
+                                <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1455899536000/icon_facebook.png" class="" alt="FB">
+                            </a>
+                            <a href="https://twitter.com/VAGateway" target="_blank">
+                                <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1455899545000/icon_twitter.png" class="" alt="Twitter">
+                            </a>
+                            <a href="http://instagram.com/VAGateway" target="_blank">
+                                <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1466703947000/icon_insta.png" class="" alt="Instagram">
+                            </a>
+                            <a href="http://www.youtube.com/channel/UC175yccg8-RkPlUQU4d-YjA" target="_blank">
+                                <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1455899562000/icon_yt.png" class="" alt="YouTube">
+                            </a>
+                            <a href="https://plus.google.com/b/101788305961537968923/+Vagateway/posts" target="_blank">
+                                <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1466703967000/icon_gplus.png" class="" alt="Google Plus">
+                            </a>
+                            <a href="#" target="_blank">
+                                <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1455899577000/icon_newsletter.png" class="" alt="newsletter sign up">
+                            </a>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 right_border">
+                    <h4 class="site_map_heading">SITE MAP</h2>
+                    <div class="row footer_site_map">
+                        <div class="col-md-6 col-xs-6">
+                            <ul>
+                                <li><a href="/stores">Shop & Restaurants</a></li>
+                                <li><a href="/promotions">Special Offers</a></li>
+                                <li><a href="/events">Events</a></li>
+                                <li><a href="/directions">Directions</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 col-xs-6">
+                            <ul>
+                                <li><a href="/jobs">Jobs</a></li>
+                                <li><a href="/contact">Contact Us</a></li>
+                                <li><a href="/about_us">About Us</a></li>
+                                <li><a href="http://www.petersoncos.com/" target="_blank">The Peterson Co.</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="site_map_heading">© 2016 - VIRGINIA GATEWAY</h2>
+                    <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1455904883000/client_peterson.png" class="footer_logo" alt="">
+                    <p class="rights_reserved">
+                        All Rights Reserved
+                        <br />
+                        Powered by <a href="http://mallmaverick.com" target="_blank">Mall Maverick</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
