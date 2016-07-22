@@ -1,6 +1,6 @@
 <div class="content_container main_container">
     <h4 class="promo_main_header">Newsletter</h3>
-    <form action="http://petersoncompanies.createsend.com/t/d/s/ftutr/" method="post" id="newsletter_form">
+    <form action="http://petersoncompanies.createsend.com/t/d/s/amjk/" method="post" id="newsletter_form">
     <div class="row">
         <div class="col-md-4">
             <label for="fieldName">Name</label>
