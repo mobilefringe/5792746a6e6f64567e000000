@@ -1,0 +1,39 @@
+<div class="content_container main_container">
+    <h4 class="promo_main_header">Directions</h3>
+    <div class="direction_container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="overlay2" onclick="style.pointerEvents='none'"></div>
+                <iframe class="direction_map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3109.632880147827!2d-77.6094012846131!3d38.79504967958652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b667ad5c67a803%3A0x64d7f8d30a67a8b0!2sVirginia+Gateway+Shopping+Center!5e0!3m2!1sen!2sca!4v1455992393075" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <div id="mm_page_content" class="promo_list_desc"></div>
+            </div>
+            <div class="col-md-4 hidden_phone">
+                <img style="margin-bottom:20px;" src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1456330978000/Plaza2.png" class="" alt="">
+                <img style="" src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1456330970000/Plaza.png" class="" alt="">
+            </div> 
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(e){
+        init(e);
+        loadMallDataCached(renderPage);
+    })
+    
+    function renderPage(){
+        var pathArray = window.location.pathname.split( '/' );
+        var slug = pathArray[pathArray.length-1];
+        
+        prefix = get_prefix();
+        $('#top_banner').addClass(slug)
+        var pages_json = prefix+"/pages/washingtonian-directions.json"
+        $.getJSON(pages_json).done(function(data) {
+            $('#mm_page_content').html(data.body);
+        }).fail(function(jqXHR) {
+            if (jqXHR.status == 404) {
+                $("#mm_page_content").text("Sorry. We cant find the page you looking for.");
+            }
+        }); 
+        show_content();
+    }
+</script>
