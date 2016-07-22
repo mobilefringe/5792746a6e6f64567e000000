@@ -1,0 +1,108 @@
+<div class="hidden-popup-bg">
+    <div class="hidden-popup-form">
+        <div class="popup-header">
+           <i class="popup-close fa fa-close"></i>
+        </div>
+        <div class="popup-body">
+            
+        </div>
+   </div>
+
+</div>
+
+<div class="show_phone mobile_banner">
+    <img src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1456154112000/mobile_bg.png" class="" alt="banner">
+    <div class="menu_links">
+        <a href="/stores">VIEW DIRECTORY</a>
+        <a href="/promotions">SEE OUR SPECIALS</a>
+        <a href="/events">CHECK OUR EVENTS</a>
+    </div>
+</div>
+
+
+<div class="content_container hidden_phone">
+    <div class="flexslider">
+    <ul class="slides" id="home_banner">
+        <script id="banner_template" type="x-tmpl-mustache/text">
+            <li>
+                <div style="background-image:url(http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/jpeg/1466691829000/bg-1.jpg)" class="banner_image_div">
+                    <a class="banner_image_li" href="{{url}}" {{css}} onclick="{{noLink}}" >
+                    </a>
+                </div>
+            </li>
+        </script>
+    </ul>
+</div>
+</div>
+<div class="content_container main_container hidden_phone">
+    <div class="feature_row" id="feature_container">
+        <script id="feature_template" type="x-tmpl-mustache/text">
+            <div class="feature_item wow animated flipInX animated">
+                <a href="{{url}}">
+                    <figure style="background-image:url('{{image_url}}')">
+                        <figcaption>
+                            <div class="view_button">View</div>
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+        </script>
+    </div>
+    <div class="clearfix"></div>
+    <div class="promotions">
+        <h3 class="promotion_heading">Up Coming Promotions & Events!</h3>
+        <p class="exclusive_deals">don’t miss our exclusive deals</p>
+        <div class="home_promotions feature_row" id="promos_container">
+            <script id="promos_template" type="x-tmpl-mustache/text">
+                <div class="promotion_item wow animated flipInX animated text-center">
+                    <a href="/promotions/{{slug}}">
+                        <img class="featured_promo_img" src="{{image_url}}" />
+                        <h3 class="promotion_header home_promos">{{name}}</h3>
+                        <p class="promotion_dates">{{dates}}</p>
+                    </a>
+                </div>
+            </script>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="content_container position_relative">
+    <h2 class="heading text-center show_phone">VISIT US</h2>
+    <div class="overlay" onclick="style.pointerEvents='none'"></div>
+    <iframe class="grayscale" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d22396.605735836303!2d-77.19375632596314!3d39.116103242393784!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x31b02cbfb23cdc39!2sRIO+Washingtonian+Center!5e0!3m2!1sen!2sus!4v1469216129402" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+<style>
+    .newsletter_container{
+        margin-top:-5px;
+    }
+</style>
+<script>
+    $(document).ready(function(e){
+        init(e);
+        function renderAll(){
+            var banners = getBanners();
+            var feature_items = getFeatureList();
+            var promotions = getPromotionsList().sortBy(function(o){ return o.start_date });
+            renderBanner('#banner_template','#home_banner',banners);
+            renderFeatureItems('#feature_container','#feature_template', feature_items);
+            var published_promos = [];
+            $.each( promotions , function( key, val ){
+                today = new Date();
+                webDate = new Date(val.show_on_web_date)
+                if (today >= webDate) {
+                    published_promos.push(val)
+                } 
+            });
+            if(published_promos.length > 0){
+                renderPromotions("#promos_container","#promos_template", published_promos.reverse().slice(0,3));
+            }
+            show_content();
+            
+            $('.flexslider').flexslider({
+                animation: "slide",
+            });
+            renderSitePopup();
+        }
+        loadMallData(renderAll); 
+    })
+</script>
