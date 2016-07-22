@@ -1,0 +1,59 @@
+<div class="content_container main_container">
+    <h4 class="promo_main_header">About Us</h3>
+    <div class="about_container">
+        <div class="row">
+            <div class="col-md-8 ">
+                <img class="about_banner" src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1456347907000/about_us.png" alt="">
+                <div id="mm_page_content" class="promo_list_desc"></div>
+            </div>
+            <div class="col-md-4">
+                <img  style="margin-bottom:20px;" src="http://assets.codecloudapp.com/sites/5792746a6e6f64567e000000/image/png/1456330978000/Plaza2.png" class="hidden_phone" alt="">
+                <div class="col-md-12 property_right">
+                    <h2 class="promo_list_name">Property Management</h2>
+                    <div class="col-md-12">
+                        <a href="">Bridget Graves</a>
+                        <div class="contact_addresss promo_list_desc">
+                            Senior Property Manager<br/>bgraves@petersoncos.com<br/>703-227-0883
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <a href="">Michelle Palumbo</a>
+                        <div class="contact_addresss promo_list_desc">
+                            Property Assistant<br/>mpalumbo@petersoncos.com<br/>703-653-8812
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <a href="">Aimee Vanover</a>
+                        <div class="contact_addresss_last promo_list_desc">
+                            Senior Property Manager<br/>bgraves@petersoncos.com<br/>703-227-0883
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(e){
+        init(e);
+        loadMallDataCached(renderPage);
+    })
+    
+    function renderPage(){
+        var pathArray = window.location.pathname.split( '/' );
+        var slug = pathArray[pathArray.length-1];
+        
+        prefix = get_prefix();
+        $('#top_banner').addClass(slug)
+        var pages_json = prefix+"/pages/washingtonian-about-us	.json"
+        $.getJSON(pages_json).done(function(data) {
+            $('#mm_page_content').html(data.body);
+        }).fail(function(jqXHR) {
+            if (jqXHR.status == 404) {
+                $("#mm_page_content").text("Sorry. We cant find the page you looking for.");
+            }
+        }); 
+        show_content();
+    }
+</script>
