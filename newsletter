@@ -1,0 +1,57 @@
+<div class="content_container main_container">
+    <h4 class="promo_main_header">Newsletter</h3>
+    <form action="http://petersoncompanies.createsend.com/t/d/s/ftutr/" method="post" id="newsletter_form">
+    <div class="row">
+        <div class="col-md-4">
+            <label for="fieldName">Name</label>
+            <input id="fieldName" name="cm-name" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label for="fieldEmail">Email</label>
+            <input id="fieldEmail" name="cm-ftutr-ftutr" type="email" required class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label class="newsletter_label">
+                <input id="newsletter_agree" type="checkbox" />
+                I agree to receive newsletters from Rio Washingtonian Center
+            </label>
+            <button type="submit" class="animated_btn main_btn">Subscribe</button>
+            <p class="hidden_now" id="success_subscribe">
+                Thank you for subscribing!
+            </p>
+        </div>
+    </div>
+    </form>
+</div>
+
+<script>
+    $(document).ready(function(e){
+        init(e);
+        show_content()
+        $('#newsletter_form').submit(function(e){
+            e.preventDefault();
+            if ($("#newsletter_agree").prop("checked") != true){
+                alert("Please agree to receive newsletters from " + site_json.mall_name + "." );
+                $("#newsletter_agree").focus();
+                return false;
+            }
+            $.getJSON(
+                this.action + "?callback=?",
+                $(this).serialize(),
+                function (data) {
+                    if (data.Status === 400) {
+                        alert("Please try again later.");
+                    } else { // 200
+                        $("#success_subscribe").fadeIn()
+                        $('#success_subscribe').delay(2000).fadeOut();
+                        $('#newsletter_form').trigger('reset')
+                    }
+                }
+            );
+        });
+    })
+</script>
